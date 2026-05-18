@@ -13,7 +13,7 @@ This is a Python-based command-line habit tracking application that helps users 
 
 ✅ View habit status and statistics
 
-✅ Export data to JSON/CSV formats
+✅ Export data to JSON formats
 
 ✅ Upcoming habit reminders
 
