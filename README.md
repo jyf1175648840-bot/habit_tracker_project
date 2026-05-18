@@ -44,62 +44,64 @@ python habit_tracker.py init
 2. Create Your First Habit
 ```bash
 # Create a daily habit
-python habit_tracker.py create --name "Running" --periodicity daily --description "Run for 30 minutes every morning"
+python main.py create --name "Running" --periodicity daily
 
 # Create a weekly habit
-python habit_tracker.py create --name "Cleaning" --periodicity weekly --description "Clean the house every Sunday"
+python main.py create --name "Cleaning" --periodicity weekly
 ```
 
 3. Mark Habit as Complete
 ```bash
-ython habit_tracker.py complete --name "Running"
+python main.py complete --name "Running"
 ```
 
 4. View All Habits
 ```bash
-python habit_tracker.py list-habits
+python main.py list-habits
 ```
 
 ## 📖 Complete Command Guide
 ### Basic Commands
 | Command | Description | Example |
 |---------|-------------|---------|
-| `init` | Initialize database | `python habit_tracker.py init` |
-| `create` | Create new habit | `python habit_tracker.py create --name "Reading" --periodicity daily` |
-| `complete` | Mark habit as complete | `python habit_tracker.py complete --name "Reading"` |
-| `list-habits` | List all habits | `python habit_tracker.py list-habits` |
-| `stats` | View statistics | `python habit_tracker.py stats` |
-| `delete` | Delete habit | `python habit_tracker.py delete --name "Reading"` |
+| `init` | Initialize database | `python main.py init` |
+| `create` | Create new habit | `python main.py create --name "Running" --periodicity daily` |
+| `complete` | Mark habit as complete | `python main.py complete --name "Meditate"` |
+| `list-habits` | List all habits | `python main.py list-habits` |
+| `stats` | View statistics | `python main.py stats` |
+| `delete` | Delete habit | `python main.py delete --name "Running"` |
 
 ### Advanced Features
 | Command | Description | Example |
 |---------|-------------|---------|
-| `export` | Export data | `python habit_tracker.py export --format json --output my_habits.json` |
-| `reminders` | View upcoming habits | `python habit_tracker.py reminders` |
-| `demo` | Create demo data | `python habit_tracker.py demo` |
-| `reset` | Reset all data | `python habit_tracker.py reset` |
+| `export` | Export data | `python main.py export --format json --output data.json` |
+| `reminders` | View upcoming habits | `python main.py reminders` |
+| `demo` | Create demo data | `python main.py demo` |
+| `reset` | Reset all data | `python main.py reset` |
 
 ## 🔧 Detailed Usage
 ### Creating Habits
 ```bash
-python habit_tracker.py create \
+python main.py create \
   --name "habit_name" \
   --periodicity daily/weekly \
-  --description "Optional description"
 ```
 
 ### Viewing Statistics
 ```bash
-python habit_tracker.py stats
+python main.py stats
 ```
 Example output:
 ```text
-📊 Habit Stats
+📊 Habit Statistics
 ========================================
 Total habits: 5
 Daily habits: 3
 Weekly habits: 2
 Broken habits: 1
+Total completions: 14
+
+🏆 Best streak: Morning meditation (5 days)
 
 📈 Streak ranking:
   1. Running: 15 days
@@ -107,13 +109,11 @@ Broken habits: 1
 ```
 
 ### Exporting Data
-Supports JSON and CSV formats:
+Supports JSON formats:
 ```bash
 # Export as JSON
-python habit_tracker.py export --format json --output habits.json
+python main.py export --format json --output data.json
 
-# Export as CSV
-python habit_tracker.py export --format csv --output habits.csv
 ```
 
 ## 📊 Database Structure
@@ -122,7 +122,6 @@ python habit_tracker.py export --format csv --output habits.csv
 |---------|-------------|---------|
 | id | INTEGER | Primary key |
 | name | TEXT | Habit name |
-| description | TEXT | Habit description |
 | periodicity | TEXT | Periodicity (daily/weekly) |
 | creation_date | TEXT | Creation time |
 | current_streak | INTEGER | Current streak |
@@ -156,15 +155,15 @@ Weekly habits: End of week (Sunday 23:59:59)
 ### 🧪 Demo Mode
 To quickly experience all features, use demo mode:
 ```bash
-python habit_tracker.py demo
-python habit_tracker.py list-habits
-python habit_tracker.py stats
+python main.py demo
+python main.py list-habits
+python main.py stats
 ```
 
 ## 🔄 Data Migration
 ### Backup Data
 ```bash
-python habit_tracker.py export --format json --output backup.json
+python main.py export --format json --output data.json
 ```
 
 ### Restore Data
