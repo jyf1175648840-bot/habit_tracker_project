@@ -28,7 +28,7 @@ Python 3.7+
 SQLite3
 
 ### Installation Steps
-1. Clone the project or download the ``` habit_tracker.py ```file
+1. Clone the project from GitHub
 
 2. Install dependencies:
 ```bash
